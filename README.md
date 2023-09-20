@@ -13,12 +13,13 @@ strfry export | deno run --allow-read prune.ts > output.jsonl
 cat /var/lib/strfry/metagross-01.jsonl | strfry import --no-verify
 ```
 
-A more advanced example includes copying strfry.conf to pruning.conf and changing the database path. e.g. `db = "./temp-db/"`
+A more advanced example includes copying strfry.conf to pruning.conf and changing the database path, then running compaction. e.g. `db = "./temp-db/"`
 
 ```shell
 doas -u strfry strfry export | doas -u strfry deno run --allow-read prune.ts  | doas -u strfry strfry --config pruning.conf import --no-verify
 systemctl stop stfry
 mv -v temp-db/data.mdb strfry-db/data.mdb
+doas -u strfry strfry compact
 systemctl start stfry
 ```
 
