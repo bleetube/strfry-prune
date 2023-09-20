@@ -1,9 +1,8 @@
 import { readLines } from 'https://deno.land/std@0.201.0/io/mod.ts';
 
-const kindAgeLimitDefault = 7;
+const kindAgeLimitDefault = 30;
 const kindAgeLimits: Record<number, number> = {
   0: 365,     // TODO: profiles with valid nip-05 should never expire
-  1: 21,      // One week of messages is ~100Mb (+/- a lot..)
   3: 90,      // Contacts
   24133: 365, // NWC
   10002: 365, // NIP-65
