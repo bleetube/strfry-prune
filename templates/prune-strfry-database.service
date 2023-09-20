@@ -1,0 +1,11 @@
+[Unit]
+Description=Prune strfry database
+
+[Service]
+WorkingDirectory=/var/lib/strfry
+ExecStartPre=systemctl stop strfry
+ExecStart=doas -u strfry /var/lib/strfry/pruning.sh
+ExecStartPost=systemctl start strfry
+
+[Install]
+WantedBy=multi-user.target

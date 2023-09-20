@@ -1,0 +1,9 @@
+[Unit]
+Description=Prune strfry database
+
+[Timer]
+OnCalendar=Sun *-*-* 3:00:00
+Unit=prune-strfry-database.service
+
+[Install]
+WantedBy=default.target
