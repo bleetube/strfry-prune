@@ -1,11 +1,13 @@
 import { readLines } from 'https://deno.land/std@0.201.0/io/mod.ts';
 
-const kindAgeLimitDefault = 30;
+const kindAgeLimitDefault = 90;
 const kindAgeLimits: Record<number, number> = {
-  0: 365,     // TODO: profiles with valid nip-05 should never expire
-  3: 90,      // Contacts
+  0: 365,     // Profiles
+  3: 365,      // Contacts
+  9734: 365,  // Zap Requests
+  9735: 365,  // Zap Receipts
   24133: 365, // NWC
-  10002: 365, // NIP-65
+  10002: 730, // NIP-65
 };
 
 const exportEventsStdin = async (): Promise<void> => {
